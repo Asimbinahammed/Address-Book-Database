@@ -251,3 +251,31 @@ mysql> select type, count(type) from contacts group by type;
 
 
 
+
+==========================================
+#UC11
+#add one person each for freind adn family
+==========================================
+
+mysql> insert into contacts
+    -> (type,first_name,last_name,address,city,state,zip,phone_number,email) values
+    -> ("family","Aswin","P","thottipalam","kochi","kerala","123456","1234568","aswinp@gmail.com"),
+    -> ("friends","Anju","chandren","katil veedu","wayanad","kerala","123","123456789","anju@gmail.com");
+Query OK, 2 rows affected (0.09 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select * from contacts;
++----+---------+------------+-----------+-------------+-----------+--------+--------+--------------+---------------------+
+| id | type    | first_name | last_name | address     | city      | state  | zip    | phone_number | email               |
++----+---------+------------+-----------+-------------+-----------+--------+--------+--------------+---------------------+
+|  1 | family  | Asim       | Ahammed   | asdf1234    | kochi     | kerala | 123456 |    987456123 | asim78998@gmail.com |
+|  3 | friends | Messi      | Lionel    | aqw4        | Barcelona | spain  | 234536 |        34586 | messi@mail.com      |
+|  4 | friends | sachin     | Tendulkar | aqwss4      | mumbai    | india  |  23233 |    334344586 | sachinn@mail.com    |
+|  6 | family  | Joy        | Tribiyoni | as4         | mumbai    | india  |  23233 |   3345677886 | joyn@mail.com       |
+|  7 | family  | Aswin      | P         | thottipalam | kochi     | kerala | 123456 |      1234568 | aswinp@gmail.com    |
+|  8 | friends | Anju       | chandren  | katil veedu | wayanad   | kerala |    123 |    123456789 | anju@gmail.com      |
++----+---------+------------+-----------+-------------+-----------+--------+--------+--------------+---------------------+
+6 rows in set (0.05 sec)
+
+
+
