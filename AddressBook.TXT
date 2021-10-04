@@ -90,3 +90,34 @@ mysql> select * from contacts;
 
 
 
+=================================================
+#UC5
+#deleting contacts using firstname
+=================================================
+
+
+mysql> insert into contacts(first_name,last_name,address,city,state,zip,phone_number,email) values("Messi","Lionel","aqw4","Barcelona","spain","234536","34586","messi@mail.com");
+Query OK, 1 row affected (0.11 sec)
+
+mysql> select * from contacts;
++----+------------+-----------+----------+-----------+--------+--------+--------------+---------------------+
+| id | first_name | last_name | address  | city      | state  | zip    | phone_number | email               |
++----+------------+-----------+----------+-----------+--------+--------+--------------+---------------------+
+|  1 | Asim       | Ahammed   | asdf1234 | kochi     | kerala | 123456 |    987456123 | asim78998@gmail.com |
+|  2 | Messi      | Lionel    | aqw4     | Barcelona | spain  | 234536 |        34586 | messi@mail.com      |
++----+------------+-----------+----------+-----------+--------+--------+--------------+---------------------+
+2 rows in set (0.01 sec)
+
+mysql> delete from contacts where first_name="messi";
+Query OK, 1 row affected (0.11 sec)
+
+mysql> select * from contacts;
++----+------------+-----------+----------+-------+--------+--------+--------------+---------------------+
+| id | first_name | last_name | address  | city  | state  | zip    | phone_number | email               |
++----+------------+-----------+----------+-------+--------+--------+--------------+---------------------+
+|  1 | Asim       | Ahammed   | asdf1234 | kochi | kerala | 123456 |    987456123 | asim78998@gmail.com |
++----+------------+-----------+----------+-------+--------+--------+--------------+---------------------+
+1 row in set (0.00 sec)
+
+
+
