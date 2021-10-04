@@ -182,3 +182,53 @@ mysql> select * from contacts where city="mumbai" order by first_name asc;
 |  4 | sachin     | Tendulkar | aqwss4  | mumbai | india | 23233 |    334344586 | sachinn@mail.com |
 +----+------------+-----------+---------+--------+-------+-------+--------------+------------------+
 2 rows in set (0.06 sec)
+
+
+
+============================================================
+#UC9
+#add new column type
+============================================================
+
+
+mysql> alter table contacts add type varchar (20) after id;
+Query OK, 0 rows affected (1.60 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from contacts;
++----+------+------------+-----------+----------+-----------+--------+--------+--------------+---------------------+
+| id | type | first_name | last_name | address  | city      | state  | zip    | phone_number | email               |
++----+------+------------+-----------+----------+-----------+--------+--------+--------------+---------------------+
+|  1 | NULL | Asim       | Ahammed   | asdf1234 | kochi     | kerala | 123456 |    987456123 | asim78998@gmail.com |
+|  3 | NULL | Messi      | Lionel    | aqw4     | Barcelona | spain  | 234536 |        34586 | messi@mail.com      |
+|  4 | NULL | sachin     | Tendulkar | aqwss4   | mumbai    | india  |  23233 |    334344586 | sachinn@mail.com    |
+|  6 | NULL | Joy        | Tribiyoni | as4      | mumbai    | india  |  23233 |   3345677886 | joyn@mail.com       |
++----+------+------------+-----------+----------+-----------+--------+--------+--------------+---------------------+
+4 rows in set (0.00 sec)
+
+mysql> update contacts set type ="family" where first_name="Asim";
+Query OK, 1 row affected (0.12 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update contacts set type ="friends" where first_name="Messi";
+Query OK, 1 row affected (0.12 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update contacts set type ="friends" where first_name="Sachin";
+Query OK, 1 row affected (0.10 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update contacts set type ="family" where first_name="Joy";
+Query OK, 1 row affected (0.04 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from contacts;
++----+---------+------------+-----------+----------+-----------+--------+--------+--------------+---------------------+
+| id | type    | first_name | last_name | address  | city      | state  | zip    | phone_number | email               |
++----+---------+------------+-----------+----------+-----------+--------+--------+--------------+---------------------+
+|  1 | family  | Asim       | Ahammed   | asdf1234 | kochi     | kerala | 123456 |    987456123 | asim78998@gmail.com |
+|  3 | friends | Messi      | Lionel    | aqw4     | Barcelona | spain  | 234536 |        34586 | messi@mail.com      |
+|  4 | friends | sachin     | Tendulkar | aqwss4   | mumbai    | india  |  23233 |    334344586 | sachinn@mail.com    |
+|  6 | family  | Joy        | Tribiyoni | as4      | mumbai    | india  |  23233 |   3345677886 | joyn@mail.com       |
++----+---------+------------+-----------+----------+-----------+--------+--------+--------------+---------------------+
+4 rows in set (0.00 sec)
