@@ -232,3 +232,22 @@ mysql> select * from contacts;
 |  6 | family  | Joy        | Tribiyoni | as4      | mumbai    | india  |  23233 |   3345677886 | joyn@mail.com       |
 +----+---------+------------+-----------+----------+-----------+--------+--------+--------------+---------------------+
 4 rows in set (0.00 sec)
+
+
+
+================================================
+#UC10
+#count of each type
+================================================
+
+mysql> select type, count(type) from contacts group by type;
++---------+-------------+
+| type    | count(type) |
++---------+-------------+
+| family  |           2 |
+| friends |           2 |
++---------+-------------+
+2 rows in set (0.05 sec)
+
+
+
