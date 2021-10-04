@@ -120,4 +120,18 @@ mysql> select * from contacts;
 1 row in set (0.00 sec)
 
 
+=========================================================
+#UC6
+retrive firstname using city
+=========================================================
+
+
+mysql> select first_name from contacts where city="kochi";
++------------+
+| first_name |
++------------+
+| Asim       |
++------------+
+1 row in set (0.00 sec)
+
 
