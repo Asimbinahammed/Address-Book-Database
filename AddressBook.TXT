@@ -278,4 +278,117 @@ mysql> select * from contacts;
 6 rows in set (0.05 sec)
 
 
+=========================================================
+UC12
+creating newtable and specifying foregin key
+=========================================================
+mysql> create table relation_type(
+    -> type_id int not null,
+    -> type varchar(30) not null,
+    -> primary key(type)
+    -> );
+Query OK, 0 rows affected (2.64 sec)
+
+mysql> insert into relation_type (type_id,type) values
+    -> (1,"family"),
+    -> (2,"friends");
+Query OK, 2 rows affected (0.64 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select * from relation_type;
++---------+---------+
+| type_id | type    |
++---------+---------+
+|       1 | family  |
+|       2 | friends |
++---------+---------+
+2 rows in set (0.00 sec)
+
+mysql> alter table contacts add foreign key(type) references relation_type(type);
+Query OK, 6 rows affected (3.03 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM contacts inner join relation_type on contacts.Type = relation_type.Type\G;
+*************************** 1. row ***************************
+          id: 1
+        type: family
+  first_name: Asim
+   last_name: Ahammed
+     address: asdf1234
+        city: kochi
+       state: kerala
+         zip: 123456
+phone_number: 987456123
+       email: asim78998@gmail.com
+     type_id: 1
+        type: family
+*************************** 2. row ***************************
+          id: 6
+        type: family
+  first_name: Joy
+   last_name: Tribiyoni
+     address: as4
+        city: mumbai
+       state: india
+         zip: 23233
+phone_number: 3345677886
+       email: joyn@mail.com
+     type_id: 1
+        type: family
+*************************** 3. row ***************************
+          id: 7
+        type: family
+  first_name: Aswin
+   last_name: P
+     address: thottipalam
+        city: kochi
+       state: kerala
+         zip: 123456
+phone_number: 1234568
+       email: aswinp@gmail.com
+     type_id: 1
+        type: family
+*************************** 4. row ***************************
+          id: 3
+        type: friends
+  first_name: Messi
+   last_name: Lionel
+     address: aqw4
+        city: Barcelona
+       state: spain
+         zip: 234536
+phone_number: 34586
+       email: messi@mail.com
+     type_id: 2
+        type: friends
+*************************** 5. row ***************************
+          id: 4
+        type: friends
+  first_name: sachin
+   last_name: Tendulkar
+     address: aqwss4
+        city: mumbai
+       state: india
+         zip: 23233
+phone_number: 334344586
+       email: sachinn@mail.com
+     type_id: 2
+        type: friends
+*************************** 6. row ***************************
+          id: 8
+        type: friends
+  first_name: Anju
+   last_name: chandren
+     address: katil veedu
+        city: wayanad
+       state: kerala
+         zip: 12345
+phone_number: 123456789
+       email: anju@gmail.com
+     type_id: 2
+        type: friends
+6 rows in set (0.04 sec)
+
+ERROR:
+No query specified
 
